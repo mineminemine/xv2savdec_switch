@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace xv2savdec
 {
-    class Crypto
+    class Advapi32
     {
         #region CONSTS
 

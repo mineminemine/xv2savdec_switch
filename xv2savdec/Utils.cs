@@ -58,7 +58,7 @@ namespace xv2savdec
         {
             IntPtr hProv = new IntPtr();
 
-            if (!Crypto.CryptAcquireContext(ref hProv, null, null, Crypto.PROV_RSA_FULL, Crypto.CRYPT_VERIFYCONTEXT))
+            if (!Advapi32.CryptAcquireContext(ref hProv, null, null, Advapi32.PROV_RSA_FULL, Advapi32.CRYPT_VERIFYCONTEXT))
             {
                 Console.WriteLine("CryptAquireContext error");
                 Console.WriteLine("Press any key to exit...");
@@ -66,7 +66,7 @@ namespace xv2savdec
                 Environment.Exit(0);
             }
 
-            if (!Crypto.CryptGenRandom(hProv, len, buf))
+            if (!Advapi32.CryptGenRandom(hProv, len, buf))
             {
                 Console.WriteLine("CryptGenRandom error");
                 Console.WriteLine("Press any key to exit...");
@@ -74,7 +74,7 @@ namespace xv2savdec
                 Environment.Exit(0);
             }
 
-            Crypto.CryptReleaseContext(hProv, 0);
+            Advapi32.CryptReleaseContext(hProv, 0);
         }
 
         public static void Xor(byte[] data, int offset, byte[] xorkey)
