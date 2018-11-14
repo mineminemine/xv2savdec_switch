@@ -141,8 +141,8 @@ namespace xv2savdec
                     return;
                 }
 
-                Console.WriteLine("Decryption success! [filename.dec.sav]");
                 string newPath = sPath.Substring(0, sPath.Length - 4);
+                Console.WriteLine("Decryption success!\n[" + newPath + ".dec.sav]");
                 File.WriteAllBytes(newPath + ".dec.sav", section2);
             }
         }
@@ -213,8 +213,9 @@ namespace xv2savdec
             Array.Copy(section1, 0, completeFile, 0, section1.Length);
             Array.Copy(section2, 0, completeFile, 0x80, section2.Length);
 
-            Console.WriteLine("Encrypting success! [savefile1_enc.dat]");
-            File.WriteAllBytes("savefile1_enc.dat", completeFile);
+            string newPath = sPath.Substring(0, sPath.Length - 8);
+            Console.WriteLine("Encryption success!\n[" + newPath + "_enc.dat]");
+            File.WriteAllBytes(newPath + "_enc.dat", completeFile);
         }
     }
 }
