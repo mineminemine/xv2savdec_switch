@@ -13,11 +13,12 @@ namespace xv2savdec
                 
                 string filePath = args[0];
                 string fileName = Path.GetFileName(filePath);
-                if(fileName == "savefile1.dat")
+                string extension = Path.GetExtension(filePath);
+                if (extension == ".dat")
                 {
                     save.Load(filePath);
                 }
-                else if (fileName == "savefile1_dec.sav")
+                else if (fileName.Contains(".dec.sav"))
                 {
                     save.Save(filePath);
                 }

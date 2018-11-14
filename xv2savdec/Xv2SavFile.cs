@@ -141,9 +141,9 @@ namespace xv2savdec
                     return;
                 }
 
-                Console.WriteLine("Decryption success! [savefile1_dec.sav]");
+                Console.WriteLine("Decryption success! [filename.dec.sav]");
                 string newPath = sPath.Substring(0, sPath.Length - 4);
-                File.WriteAllBytes(newPath + "_dec.sav", section2);
+                File.WriteAllBytes(newPath + ".dec.sav", section2);
             }
         }
 
